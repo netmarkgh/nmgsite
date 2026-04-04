@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NMG — Digital Marketing for Ghana's Growing Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0E0E0E;
+  --white: #F7F5F0;
+  --green: #1A6B3C;
+  --green-light: #2D9A5A;
+  --green-pale: #E8F5EE;
+  --gold: #C8923A;
+  --gold-pale: #FDF3E3;
+  --grey: #888;
+  --border: rgba(0,0,0,0.1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 2.5rem;
+  background: rgba(247,245,240,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  display:flex;align-items:center;gap:10px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 20px; letter-spacing: -0.5px;
+  color: var(--black);
+}
+.nav-logo img{height:36px;width:auto;object-fit:contain;border-radius:6px;}
+.nav-logo span { color: var(--green); }
+.nav-cta {
+  background: var(--green);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500;
+  padding: 8px 18px; border-radius: 50px;
+  text-decoration: none;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--green-light); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 6rem 2.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 80% 50%, rgba(26,107,60,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 10% 80%, rgba(200,146,58,0.06) 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.03;
+  background-image: linear-gradient(var(--black) 1px, transparent 1px),
+    linear-gradient(90deg, var(--black) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto; width: 100%;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-pale); color: var(--green);
+  font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
+  padding: 6px 14px; border-radius: 50px;
+  margin-bottom: 2rem;
+  animation: fadeUp .6s ease both;
+}
+.hero-tag::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); display: block;
+}
+h1.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 800; line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp .6s .1s ease both;
+}
+h1.hero-title em {
+  font-style: normal;
+  color: var(--green);
+  position: relative;
+}
+h1.hero-title em::after {
+  content: '';
+  position: absolute; bottom: 4px; left: 0; right: 0;
+  height: 3px; background: var(--green); opacity: 0.3;
+  border-radius: 2px;
+}
+.hero-sub {
+  font-size: 18px; font-weight: 300; color: #444;
+  max-width: 540px; line-height: 1.7;
+  margin-bottom: 2.5rem;
+  animation: fadeUp .6s .2s ease both;
+}
+.hero-actions {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  animation: fadeUp .6s .3s ease both;
+}
+.btn-primary {
+  background: var(--green); color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500;
+  padding: 14px 28px; border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .2s;
+  box-shadow: 0 4px 20px rgba(26,107,60,0.25);
+}
+.btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+.btn-secondary {
+  background: transparent; color: var(--black);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500;
+  padding: 14px 28px; border-radius: 50px;
+  text-decoration: none;
+  border: 1.5px solid rgba(0,0,0,0.2);
+  transition: all .2s;
+}
+.btn-secondary:hover { border-color: var(--black); }
+
+.hero-stats {
+  display: flex; gap: 2.5rem; flex-wrap: wrap;
+  margin-top: 4rem; padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  animation: fadeUp .6s .4s ease both;
+}
+.stat-item { }
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px; font-weight: 800; color: var(--green);
+}
+.stat-label { font-size: 13px; color: var(--grey); margin-top: 2px; }
+
+/* SECTION STRUCTURE */
+section { padding: 5rem 2.5rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--green);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800; letter-spacing: -1px;
+  line-height: 1.1; margin-bottom: 1rem;
+}
+.section-sub {
+  font-size: 16px; color: #555; line-height: 1.7;
+  max-width: 520px;
+}
+
+/* PROBLEM STRIP */
+.problem-strip {
+  background: var(--black); color: var(--white);
+  padding: 3rem 2.5rem;
+}
+.problem-strip .container {
+  display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+}
+.problem-text {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 700; line-height: 1.3;
+  flex: 1; min-width: 280px;
+}
+.problem-text span { color: var(--gold); }
+.problem-list {
+  flex: 1; min-width: 260px;
+  list-style: none; display: flex; flex-direction: column; gap: 12px;
+}
+.problem-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.5;
+}
+.problem-list li::before {
+  content: '✗'; color: var(--gold);
+  font-size: 13px; flex-shrink: 0; margin-top: 1px;
+}
+
+/* SERVICES */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5px;
+  background: var(--border);
+  border: 1.5px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  margin-top: 3rem;
+}
+.service-card {
+  background: var(--white);
+  padding: 2rem;
+  position: relative;
+  transition: background .2s;
+}
+.service-card:hover { background: #F0F7F3; }
+.service-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--green-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 1.25rem;
+}
+.service-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px; font-weight: 700;
+  margin-bottom: .5rem;
+}
+.service-desc {
+  font-size: 13px; color: #555; line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+.service-delivers {
+  list-style: none; display: flex; flex-direction: column; gap: 6px;
+}
+.service-delivers li {
+  font-size: 12px; color: var(--green); font-weight: 500;
+  display: flex; align-items: center; gap: 6px;
+}
+.service-delivers li::before { content: '→'; }
+
+/* HOW IT WORKS */
+.how-section { background: var(--black); color: var(--white); }
+.how-section .section-tag { color: var(--gold); }
+.how-section .section-title { color: var(--white); }
+.how-section .section-sub { color: rgba(255,255,255,0.6); }
+.steps-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+.step {
+  position: relative;
+  padding-top: 1rem;
+}
+.step-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 64px; font-weight: 800;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  position: absolute; top: -16px; left: -8px;
+}
+.step-body { position: relative; z-index: 1; }
+.step-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 1px;
+  color: var(--gold); text-transform: uppercase; margin-bottom: .75rem;
+}
+.step-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--white); margin-bottom: .5rem;
+}
+.step-text { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+/* WHO FOR */
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem; margin-top: 3rem;
+}
+.who-card {
+  border: 1.5px solid var(--border);
+  border-radius: 14px; padding: 1.5rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.who-card:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 20px rgba(26,107,60,0.1);
+}
+.who-icon { font-size: 28px; margin-bottom: 1rem; }
+.who-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 700; margin-bottom: .4rem;
+}
+.who-text { font-size: 13px; color: #555; line-height: 1.6; }
+
+/* PACKAGES */
+.packages-section { background: #F0F7F3; }
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.pkg-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px; padding: 2rem;
+  position: relative;
+  transition: all .2s;
+}
+.pkg-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+.pkg-card.featured {
+  background: var(--green); color: var(--white);
+  border-color: var(--green);
+}
+.pkg-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: #fff;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+  padding: 4px 14px; border-radius: 20px;
+  white-space: nowrap;
+}
+.pkg-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px; font-weight: 800; margin-bottom: .3rem;
+}
+.pkg-sub { font-size: 13px; opacity: 0.65; margin-bottom: 1.5rem; }
+.pkg-items {
+  list-style: none; display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 2rem;
+}
+.pkg-items li {
+  font-size: 13px; display: flex; gap: 8px; line-height: 1.5;
+}
+.pkg-items li::before { content: '✓'; font-weight: 700; flex-shrink: 0; }
+.pkg-card:not(.featured) .pkg-items li::before { color: var(--green); }
+.pkg-cta {
+  display: block; text-align: center;
+  padding: 11px; border-radius: 50px;
+  font-size: 14px; font-weight: 500;
+  text-decoration: none;
+  transition: all .2s;
+}
+.pkg-card:not(.featured) .pkg-cta {
+  background: var(--green-pale); color: var(--green);
+}
+.pkg-card:not(.featured) .pkg-cta:hover { background: var(--green); color: #fff; }
+.pkg-card.featured .pkg-cta {
+  background: var(--white); color: var(--green);
+}
+
+/* WHY NMG */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: var(--border);
+  border: 1.5px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  margin-top: 3rem;
+}
+.why-item {
+  background: var(--white);
+  padding: 2rem;
+}
+.why-item:hover { background: #fafafa; }
+.why-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700; color: var(--green);
+  margin-bottom: .75rem;
+}
+.why-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 700; margin-bottom: .4rem;
+}
+.why-text { font-size: 13px; color: #555; line-height: 1.65; }
+
+/* CTA SECTION */
+.cta-section {
+  background: var(--green);
+  color: var(--white);
+  text-align: center;
+  padding: 5rem 2.5rem;
+}
+.cta-section .section-title { color: var(--white); letter-spacing: -1px; }
+.cta-section .section-sub { color: rgba(255,255,255,0.75); margin: 0 auto 2rem; text-align: center; }
+.cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-white {
+  background: var(--white); color: var(--green);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500;
+  padding: 14px 28px; border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .2s;
+}
+.btn-white:hover { background: var(--green-pale); }
+.btn-outline-white {
+  background: transparent; color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500;
+  padding: 14px 28px; border-radius: 50px;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  transition: all .2s;
+}
+.btn-outline-white:hover { border-color: white; }
+
+/* FOOTER */
+footer {
+  background: var(--black); color: rgba(255,255,255,0.4);
+  padding: 2rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 16px; color: var(--white);
+}
+.footer-logo span { color: var(--green-light); }
+footer p { font-size: 12px; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media(max-width: 640px) {
+  nav { padding: 1rem 1.25rem; }
+  section { padding: 3.5rem 1.25rem; }
+  .hero { padding: 5rem 1.25rem 3rem; }
+  .problem-strip { padding: 2.5rem 1.25rem; }
+  .hero-stats { gap: 1.5rem; }
+  .why-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="images/NMG_logo.png" alt="Net-Marketing Ghana" loading="lazy">
+    </span>NMG Connect</span>
+  </div>
+  <a class="nav-cta" href="https://wa.me/233268786647?text=Hi%20NMG%2C%20I%27m%20interested%20in%20your%20digital%20marketing%20services" target="_blank">Start Today →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Digital Marketing · Accra, Ghana</div>
+    <h1 class="hero-title">
+      More customers.<br>
+      <em>More revenue.</em><br>
+      Less stress.
+    </h1>
+    <p class="hero-sub">
+      NMG is Ghana's done-for-you digital marketing agency. We handle your online presence so you can focus on running your business.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://wa.me/233268786647?text=Hi%20NMG%2C%20I%27m%20interested%20in%20your%20digital%20marketing%20services" target="_blank">
+        📲 Chat with us on WhatsApp
+      </a>
+      <a class="btn-secondary" href="#services">See Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">38+</div>
+        <div class="stat-label">Businesses on Google Maps</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">NMG Connect members</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">16</div>
+        <div class="stat-label">Active social media clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Ghana</div>
+        <div class="stat-label">Based & market-ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM STRIP -->
+<div class="problem-strip">
+  <div class="container">
+    <p class="problem-text">
+      Most Ghanaian businesses are<br><span>invisible online.</span><br>That's money left behind every day.
+    </p>
+    <ul class="problem-list">
+      <li>Customers search on Google but can't find you</li>
+      <li>Your social media hasn't been posted on in weeks</li>
+      <li>Leads come in but there's no system to convert them</li>
+      <li>Competitors are growing — and you're watching</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <p class="section-tag">What We Do</p>
+    <h2 class="section-title">Every service your business needs to grow online</h2>
+    <p class="section-sub">We don't sell software. We do the work — end to end.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">📍</div>
+        <div class="service-name">Google Maps Listing (GBP)</div>
+        <p class="service-desc">We set up, verify, and fully optimise your Google Business Profile so customers in your area find you first — on Google Search and Maps.</p>
+        <ul class="service-delivers">
+          <li>Verified & live on Google Maps</li>
+          <li>Optimised categories, photos & hours</li>
+          <li>Monthly performance reports</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <div class="service-name">Social Media Management</div>
+        <p class="service-desc">We run your Facebook, Instagram, TikTok (Social Media) pages — creating content, posting consistently and building an audience.</p>
+        <ul class="service-delivers">
+          <li>Content creation & scheduling</li>
+          <li>Caption writing & hashtag strategy</li>
+          <li>Monthly analytics review</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💬</div>
+        <div class="service-name">WhatsApp Sales Funnel</div>
+        <p class="service-desc">We build structured WhatsApp flows that turn enquiries into paying customers — so no lead slips through the cracks.</p>
+        <ul class="service-delivers">
+          <li>Funnel strategy & message scripts</li>
+          <li>Lead capture setup</li>
+          <li>Follow-up sequences</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <div class="service-name">Lead Generation</div>
+        <p class="service-desc">We create targeted campaigns designed to bring real, interested prospects to your business — not just likes and followers.</p>
+        <ul class="service-delivers">
+          <li>Campaign strategy & targeting</li>
+          <li>Landing page or form setup</li>
+          <li>Lead tracking & reporting</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <div class="service-name">Website Development</div>
+        <p class="service-desc">We build clean, fast websites that represent your brand well and are built to convert — not just look good.</p>
+        <ul class="service-delivers">
+          <li>Mobile-first design</li>
+          <li>SEO-ready structure</li>
+          <li>WhatsApp & contact integration</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <div class="service-name">NMG Connect</div>
+        <p class="service-desc">Join our growing business community of 500+ Accra, Ghana-based brands. Get referrals, visibility and marketing support built into a growing network.</p>
+        <ul class="service-delivers">
+          <li>Business referral network</li>
+          <li>Status Marketing exposure</li>
+          <li>Community growth support</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="container">
+    <p class="section-tag">The Process</p>
+    <h2 class="section-title">How we work with you</h2>
+    <p class="section-sub">Simple, transparent and built around your business — not ours.</p>
+
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <p class="step-label">Step 1</p>
+          <p class="step-title">We talk about your business</p>
+          <p class="step-text">A quick WhatsApp or call to understand where you are, what you sell, and what growth means to you.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <p class="step-label">Step 2</p>
+          <p class="step-title">We build your plan</p>
+          <p class="step-text">We recommend exactly what you need — no bloated packages. Just what will actually move your business forward.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <p class="step-label">Step 3</p>
+          <p class="step-title">We execute — you focus on sales</p>
+          <p class="step-text">We handle the marketing work. You handle serving customers. We update you with results regularly.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <p class="step-label">Step 4</p>
+          <p class="step-title">We review and scale</p>
+          <p class="step-text">Monthly reviews to measure what's working, fix what's not, and grow from there.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section>
+  <div class="container">
+    <p class="section-tag">Who We Serve</p>
+    <h2 class="section-title">Built for Ghana's real businesses</h2>
+    <p class="section-sub">If you run a business in Ghana and want more customers online, NMG was made for you.</p>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon">💄</div>
+        <p class="who-title">Beauty & Wellness</p>
+        <p class="who-text">Hair, skincare, cosmetics, spas — we help you get found and build a loyal client base online.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🍽️</div>
+        <p class="who-title">Food & Beverage</p>
+        <p class="who-text">Restaurants, caterers, bakeries — let hungry customers find you on Google Maps.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">👗</div>
+        <p class="who-title">Fashion & Retail</p>
+        <p class="who-text">Boutiques, clothing brands, and product sellers — we grow your online orders and foot traffic.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🏗️</div>
+        <p class="who-title">Construction & Real Estate</p>
+        <p class="who-text">Contractors, surveyors, architects — we help serious buyers and project clients find you.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🛍️</div>
+        <p class="who-title">SMEs & Startups</p>
+        <p class="who-text">Any growing business that needs a professional online presence without a full marketing team.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">📸</div>
+        <p class="who-title">Creatives & Events</p>
+        <p class="who-text">Photographers, event planners — we build your visibility and help you book more clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages-section" id="packages">
+  <div class="container">
+    <p class="section-tag">Service Packages</p>
+    <h2 class="section-title">Clear, honest pricing structures</h2>
+    <p class="section-sub">Choose what fits your stage. Every package includes direct access to your account manager.</p>
+
+    <div class="packages-grid">
+
+      <div class="pkg-card">
+        <p class="pkg-name">Starter</p>
+        <p class="pkg-sub">Get found on Google Maps</p>
+        <ul class="pkg-items">
+          <li>Google Business Profile setup & verification</li>
+          <li>Full optimisation (photos, hours, categories)</li>
+          <li>Monthly GBP performance report</li>
+          <li>WhatsApp support</li>
+        </ul>
+        <a class="pkg-cta" href="https://wa.me/233268786647?text=Hi%20NMG%2C%20I'm%20interested%20in%20the%20Starter%20package" target="_blank">Get Started →</a>
+      </div>
+
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Popular</div>
+        <p class="pkg-name">Growth</p>
+        <p class="pkg-sub">Maps + Social Media Management</p>
+        <ul class="pkg-items">
+          <li>Everything in Starter</li>
+          <li>Social media content & posting (3x/week)</li>
+          <li>Caption writing & visual design</li>
+          <li>Monthly analytics report</li>
+          <li>WhatsApp sales funnel setup</li>
+        </ul>
+        <a class="pkg-cta" href="https://wa.me/233268786647?text=Hi%20NMG%2C%20I'm%20interested%20in%20the%20Growth%20package" target="_blank">Get Started →</a>
+      </div>
+
+      <div class="pkg-card">
+        <p class="pkg-name">Scale</p>
+        <p class="pkg-sub">Full digital marketing partner</p>
+        <ul class="pkg-items">
+          <li>Everything in Growth</li>
+          <li>Lead generation campaigns</li>
+          <li>Website or landing page</li>
+          <li>NMG Connect membership</li>
+          <li>Monthly strategy session</li>
+        </ul>
+        <a class="pkg-cta" href="https://wa.me/233268786647?text=Hi%20NMG%2C%20I'm%20interested%20in%20the%20Scale%20package" target="_blank">Get Started →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY NMG -->
+<section>
+  <div class="container">
+    <p class="section-tag">Why NMG</p>
+    <h2 class="section-title">We're not a software tool.<br>We're your marketing team.</h2>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <p class="why-num">01</p>
+        <p class="why-title">We know the Ghanaian market</p>
+        <p class="why-text">We're not a global SaaS company with generic advice. We understand how Accra's customers search, buy, and behave online.</p>
+      </div>
+      <div class="why-item">
+        <p class="why-num">02</p>
+        <p class="why-title">Done-for-you, not DIY</p>
+        <p class="why-text">You don't have to learn marketing tools or manage dashboards. We handle everything and report back in plain language.</p>
+      </div>
+      <div class="why-item">
+        <p class="why-num">03</p>
+        <p class="why-title">WhatsApp-first communication</p>
+        <p class="why-text">We work the way Ghana works — fast, direct, on WhatsApp. No email chains. No waiting days for a response.</p>
+      </div>
+      <div class="why-item">
+        <p class="why-num">04</p>
+        <p class="why-title">Real results, real clients</p>
+        <p class="why-text">38+ businesses optimised on Google Maps, 500+ in our business network. We have a track record in this market.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title">Ready to grow your business online?</h2>
+    <p class="section-sub">Talk to us today. No pressure, no jargon — just a real conversation about what NMG can do for you.</p>
+    <div class="cta-actions">
+      <a class="btn-white" href="https://wa.me/233268786647?text=Hi%20NMG%2C%20I%27d%20like%20to%20discuss%20my%20business%20online%20growth" target="_blank">
+        📲 Message us on WhatsApp
+      </a>
+      <a class="btn-outline-white" href="mailto:hello@nmgghana.com">Email us instead</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-logo">
+    <img src="images/NMG_logo.png" alt="Net-Marketing Ghana" loading="lazy" style="height:30px; object-fit:contain; margin-right:10px;">
+    <span>Net-Marketing <span>Ghana</span></span>
+  </div>
+  <div class="footer-txt">Accra, Ghana · netmarkgh@gmail.com</div>
+  <div class="footer-txt">© 2026 NMG. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
