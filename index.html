@@ -78,9 +78,9 @@ nav{
 
 /* ── HERO ── */
 .hero{
-  min-height:100vh;
+  min-height:auto;
   display:flex;flex-direction:column;justify-content:center;
-  padding:8rem 2.5rem 4rem;
+  padding:7rem 2.5rem 5rem;
   position:relative;overflow:hidden;
 }
 .hero-bg{
@@ -295,7 +295,7 @@ footer{
   from{opacity:0;transform:translateY(24px)}
   to{opacity:1;transform:translateY(0)}
 }
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 @media(max-width:768px){
@@ -538,6 +538,15 @@ footer{
   <div class="footer-txt">© 2026 NMG. All rights reserved.</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Scroll reveal
-const obs = new IntersectionObserv
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
