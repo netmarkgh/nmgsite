@@ -298,7 +298,7 @@ select{
       <div class="field-row">
         <div class="field">
           <label>Business Name <span class="req">*</span></label>
-          <input type="text" id="biz-name" placeholder="e.g. Byi Cosmetics GH" oninput="clearErr('biz-name')">
+          <input type="text" id="biz-name" placeholder="e.g. Glow Cosmetics GH" oninput="clearErr('biz-name')">
           <div class="err-msg" id="err-biz-name">Business name is required</div>
         </div>
         <div class="field">
@@ -598,7 +598,8 @@ select{
 </div>
 
 <script>
-const WA_NUMBER = '233XXXXXXXXX'; // ← Replace with your WhatsApp number
+const WA_NUMBER = '233268786647';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxbb4XMjKH6ge2jSUmUw5U-eLF4o-7ci7G7vPJ8r1hGjADqrhfwmCaOvk1yUDLSXzQ-/exec';
 let currentStep = 1;
 let scaleVal = null;
 
@@ -819,19 +820,59 @@ function buildReview(){
 }
 
 // ── SUBMIT ──
-function submitForm(){
-  const name = document.getElementById('biz-name').value;
-  const owner = document.getElementById('owner-name').value;
-  const services = getSelected('#service-grid .service-opt').join(', ');
-  const goals = getSelected('#goals-grid .goal-opt').join(', ');
-  const budget = document.getElementById('budget').value;
+async function submitForm(){
+  const submitBtn = document.querySelector('.btn-submit');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting...';
+
+  const bizName    = document.getElementById('biz-name').value;
+  const ownerName  = document.getElementById('owner-name').value;
+  const phone      = document.getElementById('phone').value;
+  const email      = document.getElementById('email').value;
+  const industry   = document.getElementById('industry').value;
+  const location   = document.getElementById('location').value;
+  const website    = document.getElementById('website').value;
+  const services   = getSelected('#service-grid .service-opt').join(', ');
+  const currentMkt = document.getElementById('current-mkt').value;
+  const budget     = document.getElementById('budget').value;
+  const goals      = getSelected('#goals-grid .goal-opt').join(' | ');
+  const target     = document.getElementById('target').value;
+  const bizDesc    = document.getElementById('biz-desc').value;
+  const scale      = scaleVal ? scaleVal+'/10' : '—';
+  const extra      = document.getElementById('extra').value;
+  const logoFile   = document.getElementById('logo-upload').files.length
+                     ? document.getElementById('logo-upload').files[0].name
+                     : 'Not uploaded';
+
+  // ── Send to Google Sheets ──
+  const payload = {
+    bizName, ownerName, phone, email, industry,
+    location, website, services, currentMkt, budget,
+    goals, target, bizDesc, scale, extra, logoFile
+  };
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    });
+  } catch(err){
+    console.warn('Sheet submission error:', err);
+    // Still proceed — don't block the client experience
+  }
+
+  // ── Build WhatsApp message ──
   const msg = encodeURIComponent(
     `Hi NMG! I just completed my onboarding form.\n\n`+
-    `Business: ${name}\nContact: ${owner}\n`+
+    `Business: ${bizName}\nContact: ${ownerName}\nWhatsApp: ${phone}\n`+
     `Services: ${services}\nGoals: ${goals}\nBudget: ${budget}\n\n`+
     `Looking forward to working with you! 🚀`
   );
   document.getElementById('wa-link').href = `https://wa.me/${WA_NUMBER}?text=${msg}`;
+
+  // ── Show success ──
   document.getElementById('main-card').style.display='none';
   document.getElementById('success-screen').classList.add('show');
   document.querySelector('.progress-wrap').style.display='none';
