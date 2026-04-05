@@ -823,7 +823,7 @@ function buildReview(){
 async function submitForm(){
   const submitBtn = document.querySelector('.btn-submit');
   submitBtn.disabled = true;
-  submitBtn.textContent = 'Submitting...';
+  submitBtn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin .8s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Submitting...</span>';
 
   const bizName    = document.getElementById('biz-name').value;
   const ownerName  = document.getElementById('owner-name').value;
@@ -840,44 +840,69 @@ async function submitForm(){
   const bizDesc    = document.getElementById('biz-desc').value;
   const scale      = scaleVal ? scaleVal+'/10' : '—';
   const extra      = document.getElementById('extra').value;
-  const logoFile   = document.getElementById('logo-upload').files.length
-                     ? document.getElementById('logo-upload').files[0].name
-                     : 'Not uploaded';
 
-  // ── Send to Google Sheets ──
+  // ── Encode file to Base64 for Drive upload ──
+  let fileData = null;
+  let fileName = null;
+  let fileType = null;
+
+  const fileInput = document.getElementById('logo-upload');
+  if(fileInput.files && fileInput.files[0]){
+    const file = fileInput.files[0];
+    fileName = file.name;
+    fileType = file.type;
+    fileData = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        // Strip the data URL prefix (e.g. "data:image/png;base64,")
+        const base64 = reader.result.split(',')[1];
+        resolve(base64);
+      };
+      reader.onerror = () => reject(new Error('File read failed'));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // ── Build payload ──
   const payload = {
     bizName, ownerName, phone, email, industry,
     location, website, services, currentMkt, budget,
-    goals, target, bizDesc, scale, extra, logoFile
+    goals, target, bizDesc, scale, extra,
+    fileData, fileName, fileType
   };
 
+  // ── Send to Apps Script (Google Sheets + Drive) ──
   try {
     await fetch(APPS_SCRIPT_URL, {
-      method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'application/json'},
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)
     });
   } catch(err){
-    console.warn('Sheet submission error:', err);
-    // Still proceed — don't block the client experience
+    console.warn('Submission error:', err);
+    // Still proceed — never block the client experience
   }
 
   // ── Build WhatsApp message ──
   const msg = encodeURIComponent(
-    `Hi NMG! I just completed my onboarding form.\n\n`+
-    `Business: ${bizName}\nContact: ${ownerName}\nWhatsApp: ${phone}\n`+
-    `Services: ${services}\nGoals: ${goals}\nBudget: ${budget}\n\n`+
+    `Hi NMG! I just completed my onboarding form.\n\n` +
+    `Business: ${bizName}\nContact: ${ownerName}\nWhatsApp: ${phone}\n` +
+    `Services: ${services}\nGoals: ${goals}\nBudget: ${budget}\n` +
+    `Logo: ${fileName || 'Not uploaded'}\n\n` +
     `Looking forward to working with you! 🚀`
   );
   document.getElementById('wa-link').href = `https://wa.me/${WA_NUMBER}?text=${msg}`;
 
   // ── Show success ──
-  document.getElementById('main-card').style.display='none';
+  document.getElementById('main-card').style.display = 'none';
   document.getElementById('success-screen').classList.add('show');
-  document.querySelector('.progress-wrap').style.display='none';
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelector('.progress-wrap').style.display = 'none';
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 </script>
+<style>
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
 </body>
 </html>
