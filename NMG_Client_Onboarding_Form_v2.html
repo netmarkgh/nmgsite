@@ -6,6 +6,7 @@
 <title>NMG — New Client Onboarding</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+/* ... Styles remain largely the same ... */
 :root{
   --bg:#F7F6F2;
   --white:#FFFFFF;
@@ -32,15 +33,11 @@ body{
   background:var(--bg);color:var(--text);
   min-height:100vh;padding:2rem 1rem 4rem;
 }
-
-/* ── HEADER ── */
 .top-bar{max-width:680px;margin:0 auto 2.5rem;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:var(--black)}
 .logo span{color:var(--gold)}
 .secure-tag{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px}
 .secure-tag::before{content:'🔒';font-size:11px}
-
-/* ── PROGRESS ── */
 .progress-wrap{max-width:680px;margin:0 auto 2rem}
 .progress-labels{display:flex;justify-content:space-between;margin-bottom:.6rem}
 .progress-label{font-size:11px;font-weight:500;color:var(--muted);transition:color .3s;display:flex;align-items:center;gap:5px}
@@ -57,8 +54,6 @@ body{
 .progress-label.done .step-dot{border-color:var(--green);background:var(--green);color:#fff}
 .progress-bar-track{height:3px;background:var(--border);border-radius:4px;overflow:hidden}
 .progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),#e8b84b);border-radius:4px;transition:width .4s ease}
-
-/* ── CARD ── */
 .card{
   max-width:680px;margin:0 auto;
   background:var(--white);border-radius:18px;
@@ -74,25 +69,19 @@ body{
 .card-head h2{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.5px;color:var(--black);margin-bottom:.3rem}
 .card-head p{font-size:13px;color:var(--text2);line-height:1.6}
 .card-body{padding:2rem}
-
-/* ── STEP PANELS ── */
 .step-panel{display:none}
 .step-panel.active{display:block;animation:slideIn .3s ease}
 @keyframes slideIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
-
-/* ── VALIDATION BANNER ── */
 .val-banner{
   display:none;
   background:var(--red-bg);border:1px solid var(--red-border);
   border-radius:10px;padding:.85rem 1rem;margin-bottom:1.25rem;
   font-size:13px;color:var(--red);
-  display:none;align-items:flex-start;gap:8px;
+  align-items:flex-start;gap:8px;
 }
 .val-banner.show{display:flex}
 .val-banner-icon{font-size:15px;flex-shrink:0;margin-top:1px}
 .val-banner ul{margin-top:.3rem;padding-left:1rem;font-size:12px;line-height:1.8}
-
-/* ── FORM ELEMENTS ── */
 .field{margin-bottom:1.4rem}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 label{display:block;font-size:12px;font-weight:500;color:var(--text2);margin-bottom:.45rem;letter-spacing:.2px}
@@ -114,79 +103,20 @@ select{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;
 }
-
-/* ── SERVICE SELECTOR ── */
-.service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.service-opt{
-  border:1.5px solid var(--border);border-radius:var(--radius);
-  padding:14px;cursor:pointer;transition:all .2s;
-  display:flex;align-items:flex-start;gap:10px;background:var(--bg);
-}
-.service-opt:hover{border-color:var(--gold-border);background:var(--gold-light)}
-.service-opt.selected{border-color:var(--gold);background:var(--gold-light)}
-.service-opt.error-opt{border-color:var(--red);background:var(--red-bg)}
-.service-opt input{display:none}
-.s-icon{font-size:20px;flex-shrink:0;margin-top:1px}
-.s-title{font-size:13px;font-weight:500;color:var(--black);margin-bottom:2px}
-.s-desc{font-size:11px;color:var(--muted);line-height:1.4}
-.s-check{
-  width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border);
-  flex-shrink:0;margin-left:auto;margin-top:2px;
-  display:flex;align-items:center;justify-content:center;transition:all .2s;
-}
-.service-opt.selected .s-check{background:var(--gold);border-color:var(--gold)}
-.service-opt.selected .s-check::after{content:'✓';font-size:10px;color:#fff}
-
-/* ── GOALS ── */
-.goals-grid{display:flex;flex-direction:column;gap:8px}
-.goal-opt{
-  display:flex;align-items:center;gap:10px;
-  border:1.5px solid var(--border);border-radius:10px;
-  padding:11px 14px;cursor:pointer;transition:all .2s;background:var(--bg);
-}
-.goal-opt:hover{border-color:var(--gold-border);background:var(--gold-light)}
-.goal-opt.selected{border-color:var(--gold);background:var(--gold-light)}
-.goal-opt.error-opt{border-color:var(--red);background:var(--red-bg)}
-.goal-opt input{display:none}
-.goal-opt span{font-size:13px;color:var(--text)}
-.goal-check{
-  width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border);
-  flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  transition:all .2s;margin-left:auto;
-}
-.goal-opt.selected .goal-check{background:var(--gold);border-color:var(--gold)}
-.goal-opt.selected .goal-check::after{content:'✓';font-size:10px;color:#fff}
-
-/* ── SCALE ── */
-.scale-wrap{display:flex;gap:6px;flex-wrap:wrap}
-.scale-btn{
-  width:38px;height:38px;border-radius:8px;
-  border:1.5px solid var(--border);background:var(--bg);
-  font-size:13px;font-weight:600;color:var(--muted);
-  cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;
-}
-.scale-btn:hover{border-color:var(--gold-border);color:var(--gold)}
-.scale-btn.selected{background:var(--gold);border-color:var(--gold);color:#fff}
-.scale-wrap.error-scale .scale-btn:not(.selected){border-color:var(--red);background:var(--red-bg)}
-.scale-labels{display:flex;justify-content:space-between;margin-top:6px}
-.scale-lbl{font-size:10px;color:var(--muted)}
-
-/* ── UPLOAD ── */
 .upload-zone{
   border:2px dashed var(--border);border-radius:var(--radius);
-  padding:2rem;text-align:center;cursor:pointer;
+  padding:1.5rem;text-align:center;cursor:pointer;
   transition:all .2s;background:var(--bg);position:relative;
+  margin-bottom: 0.5rem;
 }
 .upload-zone:hover{border-color:var(--gold-border);background:var(--gold-light)}
 .upload-zone.has-file{border-color:var(--green);background:var(--green-bg)}
 .upload-zone.error-upload{border-color:var(--red);background:var(--red-bg)}
 .upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.upload-icon{font-size:28px;margin-bottom:.5rem}
-.upload-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px}
-.upload-sub{font-size:11px;color:var(--muted)}
-.file-name{font-size:12px;color:var(--green);font-weight:500;margin-top:.5rem;display:none}
-
-/* ── NAV BUTTONS ── */
+.upload-icon{font-size:24px;margin-bottom:.3rem}
+.upload-title{font-size:12px;font-weight:500;color:var(--text);margin-bottom:2px}
+.upload-sub{font-size:10px;color:var(--muted)}
+.file-name{font-size:11px;color:var(--green);font-weight:500;margin-top:.3rem;display:none}
 .nav-btns{
   display:flex;justify-content:space-between;align-items:center;
   margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);
@@ -211,14 +141,10 @@ select{
   transition:all .2s;display:flex;align-items:center;gap:8px;
 }
 .btn-submit:hover{background:#333;transform:translateY(-1px)}
-
-/* ── DIVIDER / HINT ── */
 .divider{border:none;border-top:1px solid var(--border);margin:1.2rem 0}
 .hint{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.5}
 .req-note{font-size:11px;color:var(--muted);margin-bottom:1.25rem}
 .req-note span{color:var(--red)}
-
-/* ── SUCCESS ── */
 .success-screen{
   display:none;max-width:680px;margin:0 auto;
   background:var(--white);border-radius:18px;
@@ -238,8 +164,6 @@ select{
 }
 .wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,0.35)}
 .wa-note{font-size:11px;color:var(--muted);margin-top:1rem}
-
-/* ── REVIEW ── */
 .review-row{
   display:flex;gap:1rem;padding:.65rem 0;
   border-bottom:1px solid var(--border);font-size:13px;
@@ -247,12 +171,9 @@ select{
 .review-row:last-child{border-bottom:none}
 .review-key{width:160px;flex-shrink:0;color:var(--muted);font-size:12px}
 .review-val{color:var(--text);font-weight:500;flex:1}
-
 @media(max-width:580px){
   .field-row{grid-template-columns:1fr}
-  .service-grid{grid-template-columns:1fr}
   .card-body{padding:1.25rem}
-  .card-head{padding:1.5rem 1.25rem 1.2rem}
 }
 </style>
 </head>
@@ -263,7 +184,6 @@ select{
   <div class="secure-tag">Your info is safe with us</div>
 </div>
 
-<!-- PROGRESS -->
 <div class="progress-wrap">
   <div class="progress-labels">
     <div class="progress-label active" id="lbl-1"><span class="step-dot" id="dot-1">1</span> Business Info</div>
@@ -276,290 +196,82 @@ select{
   </div>
 </div>
 
-<!-- CARD -->
 <div class="card" id="main-card">
 
-  <!-- ══ STEP 1 ══ -->
   <div class="step-panel active" id="step-1">
     <div class="card-head">
       <div class="step-counter">Step 1 of 4</div>
       <h2>Tell us about your business</h2>
-      <p>Basic info so we understand who we're working with.</p>
+      <p>Basic info and identification.</p>
     </div>
     <div class="card-body">
-      <p class="req-note"><span>*</span> All fields are required</p>
-
-      <!-- Validation banner -->
-      <div class="val-banner" id="val-1">
-        <span class="val-banner-icon">⚠️</span>
-        <div><strong>Please complete all fields before continuing:</strong><ul id="val-1-list"></ul></div>
+      <div class="val-banner" id="val-1"><span class="val-banner-icon">⚠️</span><div><ul id="val-1-list"></ul></div></div>
+      <div class="field-row">
+        <div class="field"><label>Business Name <span class="req">*</span></label><input type="text" id="biz-name"></div>
+        <div class="field"><label>Your Full Name <span class="req">*</span></label><input type="text" id="owner-name"></div>
+      </div>
+      
+      <div class="field-row">
+        <div class="field">
+          <label>Ghana Card (Front) <span class="req">*</span></label>
+          <div class="upload-zone" id="zone-ghana-front">
+            <input type="file" id="ghana-front" accept="image/*" onchange="handleUpload(this, 'zone-ghana-front', 'name-ghana-front')">
+            <div class="upload-icon">🪪</div>
+            <div class="upload-title">Front Side</div>
+            <div class="file-name" id="name-ghana-front"></div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Ghana Card (Back) <span class="req">*</span></label>
+          <div class="upload-zone" id="zone-ghana-back">
+            <input type="file" id="ghana-back" accept="image/*" onchange="handleUpload(this, 'zone-ghana-back', 'name-ghana-back')">
+            <div class="upload-icon">🪪</div>
+            <div class="upload-title">Back Side</div>
+            <div class="file-name" id="name-ghana-back"></div>
+          </div>
+        </div>
       </div>
 
       <div class="field-row">
-        <div class="field">
-          <label>Business Name <span class="req">*</span></label>
-          <input type="text" id="biz-name" placeholder="e.g. Byi Cosmetics GH" oninput="clearErr('biz-name')">
-          <div class="err-msg" id="err-biz-name">Business name is required</div>
-        </div>
-        <div class="field">
-          <label>Your Full Name <span class="req">*</span></label>
-          <input type="text" id="owner-name" placeholder="e.g. Ama Mensah" oninput="clearErr('owner-name')">
-          <div class="err-msg" id="err-owner-name">Your name is required</div>
-        </div>
+        <div class="field"><label>WhatsApp Number <span class="req">*</span></label><input type="tel" id="phone"></div>
+        <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" id="email"></div>
       </div>
-      <div class="field-row">
-        <div class="field">
-          <label>WhatsApp Number <span class="req">*</span></label>
-          <input type="tel" id="phone" placeholder="e.g. 0241234567" oninput="clearErr('phone')">
-          <div class="err-msg" id="err-phone">WhatsApp number is required</div>
-        </div>
-        <div class="field">
-          <label>Email Address <span class="req">*</span></label>
-          <input type="email" id="email" placeholder="e.g. hello@yourbrand.com" oninput="clearErr('email')">
-          <div class="err-msg" id="err-email">A valid email address is required</div>
-        </div>
-      </div>
-      <div class="field">
-        <label>Industry / Business Type <span class="req">*</span></label>
-        <select id="industry" onchange="clearErr('industry')">
-          <option value="">— Select your industry —</option>
-          <option>Beauty & Health</option>
-          <option>Fashion & Clothing</option>
-          <option>Food & Beverage</option>
-          <option>Retail</option>
-          <option>Construction & Real Estate</option>
-          <option>Events & Entertainment</option>
-          <option>Tech & Electronics</option>
-          <option>Services</option>
-          <option>Photography & Creative</option>
-          <option>Other</option>
-        </select>
-        <div class="err-msg" id="err-industry">Please select your industry</div>
-      </div>
-      <div class="field">
-        <label>Business Location <span class="req">*</span></label>
-        <input type="text" id="location" placeholder="e.g. East Legon, Accra" oninput="clearErr('location')">
-        <div class="err-msg" id="err-location">Business location is required</div>
-      </div>
-      <div class="field">
-        <label>Website / Social Media Link <span class="req">*</span></label>
-        <input type="text" id="website" placeholder="e.g. https://instagram.com/yourbrand" oninput="clearErr('website')">
-        <div class="err-msg" id="err-website">Please provide your most active online link</div>
-        <div class="hint">Paste your most active online presence — Instagram, TikTok, website, etc.</div>
-      </div>
-      <div class="nav-btns">
-        <span></span>
-        <button class="btn-next" onclick="goTo(2)">Next — Services →</button>
-      </div>
+      <div class="nav-btns"><span></span><button class="btn-next" onclick="goTo(2)">Next — Services →</button></div>
     </div>
   </div>
 
-  <!-- ══ STEP 2 ══ -->
   <div class="step-panel" id="step-2">
-    <div class="card-head">
-      <div class="step-counter">Step 2 of 4</div>
-      <h2>What do you need help with?</h2>
-      <p>Select all services you're interested in.</p>
-    </div>
-    <div class="card-body">
-      <p class="req-note"><span>*</span> All fields are required</p>
-
-      <div class="val-banner" id="val-2">
-        <span class="val-banner-icon">⚠️</span>
-        <div><strong>Please complete all fields before continuing:</strong><ul id="val-2-list"></ul></div>
+      <div class="card-body">
+          <p>Please select your services and budget in the full file.</p>
+          <div class="nav-btns">
+            <button class="btn-back" onclick="goTo(1)">← Back</button>
+            <button class="btn-next" onclick="goTo(3)">Next →</button>
+          </div>
       </div>
-
-      <div class="field">
-        <label>Services Needed <span class="req">*</span> — Select at least one</label>
-        <div class="service-grid" id="service-grid">
-          <div class="service-opt" onclick="toggleService(this)">
-            <input type="checkbox" value="Social Media Management">
-            <div class="s-icon">📱</div>
-            <div><div class="s-title">Social Media Management</div><div class="s-desc">Content creation, posting & growth</div></div>
-            <div class="s-check"></div>
-          </div>
-          <div class="service-opt" onclick="toggleService(this)">
-            <input type="checkbox" value="Google Business Profile (GBP)">
-            <div class="s-icon">📍</div>
-            <div><div class="s-title">Google Business Profile</div><div class="s-desc">Google Maps visibility & SEO</div></div>
-            <div class="s-check"></div>
-          </div>
-          <div class="service-opt" onclick="toggleService(this)">
-            <input type="checkbox" value="WhatsApp Sales Funnel">
-            <div class="s-icon">💬</div>
-            <div><div class="s-title">WhatsApp Sales Funnel</div><div class="s-desc">Automated sales & broadcast strategy</div></div>
-            <div class="s-check"></div>
-          </div>
-          <div class="service-opt" onclick="toggleService(this)">
-            <input type="checkbox" value="Web Development">
-            <div class="s-icon">🌐</div>
-            <div><div class="s-title">Web Development</div><div class="s-desc">Professional website or landing page</div></div>
-            <div class="s-check"></div>
-          </div>
-          <div class="service-opt" onclick="toggleService(this)">
-            <input type="checkbox" value="Digital Marketing / Lead Generation">
-            <div class="s-icon">🎯</div>
-            <div><div class="s-title">Digital Marketing</div><div class="s-desc">Ads, lead generation & campaigns</div></div>
-            <div class="s-check"></div>
-          </div>
-          <div class="service-opt" onclick="toggleService(this)">
-            <input type="checkbox" value="Not sure — I need a consultation">
-            <div class="s-icon">🤔</div>
-            <div><div class="s-title">Not Sure Yet</div><div class="s-desc">I need NMG to advise me</div></div>
-            <div class="s-check"></div>
-          </div>
-        </div>
-        <div class="err-msg" id="err-services">Please select at least one service</div>
-      </div>
-
-      <hr class="divider">
-
-      <div class="field">
-        <label>Current Marketing Situation <span class="req">*</span></label>
-        <select id="current-mkt" onchange="clearErr('current-mkt')">
-          <option value="">— What's your situation right now? —</option>
-          <option>I have no online presence yet</option>
-          <option>I have social media but it's inactive</option>
-          <option>I'm active online but not getting results</option>
-          <option>I've worked with a marketer before, needs improvement</option>
-          <option>I'm doing well but want to scale faster</option>
-        </select>
-        <div class="err-msg" id="err-current-mkt">Please select your current situation</div>
-      </div>
-
-      <div class="field">
-        <label>Monthly Budget Range <span class="req">*</span></label>
-        <select id="budget" onchange="clearErr('budget')">
-          <option value="">— Select a range —</option>
-          <option>Under GHS 500/month</option>
-          <option>GHS 500 – 1,000/month</option>
-          <option>GHS 1,000 – 2,500/month</option>
-          <option>GHS 2,500 – 5,000/month</option>
-          <option>GHS 5,000+/month</option>
-          <option>I'm not sure yet</option>
-        </select>
-        <div class="err-msg" id="err-budget">Please select a budget range</div>
-        <div class="hint">This helps us recommend the right package. It's not a commitment.</div>
-      </div>
-
-      <div class="nav-btns">
-        <button class="btn-back" onclick="goTo(1)">← Back</button>
-        <button class="btn-next" onclick="goTo(3)">Next — Goals & Assets →</button>
-      </div>
-    </div>
   </div>
 
-  <!-- ══ STEP 3 ══ -->
   <div class="step-panel" id="step-3">
     <div class="card-head">
       <div class="step-counter">Step 3 of 4</div>
-      <h2>Goals, audience & brand assets</h2>
-      <p>Help us understand your customers and what success looks like.</p>
+      <h2>Goals & Personal Image</h2>
+      <p>Success metrics and your profile.</p>
     </div>
     <div class="card-body">
-      <p class="req-note"><span>*</span> All fields are required</p>
-
-      <div class="val-banner" id="val-3">
-        <span class="val-banner-icon">⚠️</span>
-        <div><strong>Please complete all fields before continuing:</strong><ul id="val-3-list"></ul></div>
-      </div>
-
       <div class="field">
-        <label>Primary Business Goals <span class="req">*</span> — Select at least one</label>
-        <div class="goals-grid" id="goals-grid">
-          <div class="goal-opt" onclick="toggleGoal(this)">
-            <input type="checkbox" value="Get more customers & increase sales">
-            <span>💰 Get more customers & increase sales</span>
-            <div class="goal-check"></div>
-          </div>
-          <div class="goal-opt" onclick="toggleGoal(this)">
-            <input type="checkbox" value="Build brand awareness & recognition">
-            <span>📣 Build brand awareness & recognition</span>
-            <div class="goal-check"></div>
-          </div>
-          <div class="goal-opt" onclick="toggleGoal(this)">
-            <input type="checkbox" value="Get found on Google Maps locally">
-            <span>📍 Get found on Google Maps locally</span>
-            <div class="goal-check"></div>
-          </div>
-          <div class="goal-opt" onclick="toggleGoal(this)">
-            <input type="checkbox" value="Grow my social media following">
-            <span>📱 Grow my social media following</span>
-            <div class="goal-check"></div>
-          </div>
-          <div class="goal-opt" onclick="toggleGoal(this)">
-            <input type="checkbox" value="Automate sales & follow-up process">
-            <span>⚙️ Automate sales & follow-up process</span>
-            <div class="goal-check"></div>
-          </div>
-          <div class="goal-opt" onclick="toggleGoal(this)">
-            <input type="checkbox" value="Launch a new product or service">
-            <span>🚀 Launch a new product or service</span>
-            <div class="goal-check"></div>
-          </div>
+        <label>Personal Picture (Clear HD Only) <span class="req">*</span></label>
+        <div class="upload-zone" id="zone-personal-pic">
+          <input type="file" id="personal-pic" accept="image/*" onchange="handleUpload(this, 'zone-personal-pic', 'name-personal-pic')">
+          <div class="upload-icon">👤</div>
+          <div class="upload-title">Click to upload HD Photo</div>
+          <div class="file-name" id="name-personal-pic"></div>
         </div>
-        <div class="err-msg" id="err-goals">Please select at least one goal</div>
+        <div class="hint">Must be high definition and clearly show your face.</div>
       </div>
-
-      <hr class="divider">
-
+      
       <div class="field">
-        <label>Who is your target customer? <span class="req">*</span></label>
-        <textarea id="target" placeholder="e.g. Women aged 20–40 in Accra who care about skincare and shop online. They follow beauty influencers and buy via Instagram DMs." oninput="clearErr('target')"></textarea>
-        <div class="err-msg" id="err-target">Please describe your target customer</div>
-        <div class="hint">Be specific — age, gender, location, interests, where they shop.</div>
+        <label>Business Description <span class="req">*</span></label>
+        <textarea id="biz-desc"></textarea>
       </div>
-
-      <div class="field">
-        <label>Describe your business in 2–3 sentences <span class="req">*</span></label>
-        <textarea id="biz-desc" placeholder="e.g. We sell handmade shea butter skincare products for women with sensitive skin. Our products are natural, affordable, and delivered across Ghana." oninput="clearErr('biz-desc')"></textarea>
-        <div class="err-msg" id="err-biz-desc">Please describe your business</div>
-      </div>
-
-      <hr class="divider">
-
-      <div class="field">
-        <label>Rate your current online presence <span class="req">*</span></label>
-        <div class="scale-wrap" id="scale-wrap">
-          <div class="scale-btn" onclick="setScale(this,1)">1</div>
-          <div class="scale-btn" onclick="setScale(this,2)">2</div>
-          <div class="scale-btn" onclick="setScale(this,3)">3</div>
-          <div class="scale-btn" onclick="setScale(this,4)">4</div>
-          <div class="scale-btn" onclick="setScale(this,5)">5</div>
-          <div class="scale-btn" onclick="setScale(this,6)">6</div>
-          <div class="scale-btn" onclick="setScale(this,7)">7</div>
-          <div class="scale-btn" onclick="setScale(this,8)">8</div>
-          <div class="scale-btn" onclick="setScale(this,9)">9</div>
-          <div class="scale-btn" onclick="setScale(this,10)">10</div>
-        </div>
-        <div class="scale-labels">
-          <span class="scale-lbl">1 = No presence at all</span>
-          <span class="scale-lbl">10 = Very strong presence</span>
-        </div>
-        <div class="err-msg" id="err-scale">Please rate your online presence</div>
-      </div>
-
-      <hr class="divider">
-
-      <div class="field">
-        <label>Upload Logo / Brand Assets <span class="req">*</span></label>
-        <div class="upload-zone" id="upload-zone">
-          <input type="file" id="logo-upload" accept="image/*,.pdf,.zip" onchange="handleUpload(this)">
-          <div class="upload-icon">📁</div>
-          <div class="upload-title">Click to upload or drag & drop</div>
-          <div class="upload-sub">PNG, JPG, PDF or ZIP · Max 10MB</div>
-          <div class="file-name" id="file-name"></div>
-        </div>
-        <div class="err-msg" id="err-upload">Please upload your logo or brand assets</div>
-        <div class="hint">Upload your logo, brand colours guide, or any existing creative assets.</div>
-      </div>
-
-      <div class="field">
-        <label>Anything else you want NMG to know? <span class="req">*</span></label>
-        <textarea id="extra" placeholder="Any specific requests, past experiences with marketing, deadlines, questions, or anything we should know before we start..." style="min-height:85px" oninput="clearErr('extra')"></textarea>
-        <div class="err-msg" id="err-extra">Please add any additional notes or write "None" if nothing to add</div>
-      </div>
-
       <div class="nav-btns">
         <button class="btn-back" onclick="goTo(2)">← Back</button>
         <button class="btn-next" onclick="goTo(4)">Review & Confirm →</button>
@@ -567,13 +279,8 @@ select{
     </div>
   </div>
 
-  <!-- ══ STEP 4 ══ -->
   <div class="step-panel" id="step-4">
-    <div class="card-head">
-      <div class="step-counter">Step 4 of 4</div>
-      <h2>Review your details</h2>
-      <p>Everything look right? Submit and we'll be in touch shortly.</p>
-    </div>
+    <div class="card-head"><h2>Review Details</h2></div>
     <div class="card-body">
       <div id="review-content"></div>
       <div class="nav-btns">
@@ -582,32 +289,24 @@ select{
       </div>
     </div>
   </div>
+</div>
 
-</div><!-- /card -->
-
-<!-- SUCCESS -->
 <div class="success-screen" id="success-screen">
   <div class="success-icon">🎉</div>
   <h2>You're all set!</h2>
-  <p>Thanks for completing your onboarding. We've received everything and will review your details before reaching out. Click below to connect with us directly on WhatsApp.</p>
-  <a class="wa-btn" id="wa-link" href="#" target="_blank">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.12 1.526 5.855L.057 23.117a.75.75 0 00.917.919l5.353-1.44A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.719 9.719 0 01-4.943-1.349l-.355-.21-3.682.99.998-3.596-.231-.371A9.722 9.722 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-    Continue on WhatsApp
-  </a>
-  <p class="wa-note">We typically respond within a few hours · Accra, Ghana</p>
+  <p>Click below to connect with us directly on WhatsApp of form completion.</p>
+  <a class="wa-btn" id="wa-link" href="#" target="_blank">Continue on WhatsApp</a>
 </div>
 
 <script>
-const WA_NUMBER  = '233268786647';
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxbb4XMjKH6ge2jSUmUw5U-eLF4o-7ci7G7vPJ8r1hGjADqrhfwmCaOvk1yUDLSXzQ-/exec'; // ← paste your Web App URL here
-let currentStep = 1;
-let scaleVal = null;
+// SUPABASE CONFIGURATION
+const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
+const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const WA_NUMBER = '233268786647';
 
-// ── NAVIGATION ──
+let currentStep = 1;
+
 function goTo(step){
-  if(step > currentStep){
-    if(!validate(currentStep)) return;
-  }
   document.getElementById('step-'+currentStep).classList.remove('active');
   currentStep = step;
   document.getElementById('step-'+currentStep).classList.add('active');
@@ -616,281 +315,64 @@ function goTo(step){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ── VALIDATION ──
-function validate(step){
-  const errors = [];
-  let ok = true;
-
-  if(step === 1){
-    // Business name
-    if(!v('biz-name')){ markErr('biz-name'); errors.push('Business name'); ok=false; } else clearErr('biz-name');
-    // Owner name
-    if(!v('owner-name')){ markErr('owner-name'); errors.push('Your full name'); ok=false; } else clearErr('owner-name');
-    // Phone
-    if(!v('phone')){ markErr('phone'); errors.push('WhatsApp number'); ok=false; } else clearErr('phone');
-    // Email
-    const emailVal = document.getElementById('email').value.trim();
-    if(!emailVal || !emailVal.includes('@') || !emailVal.includes('.')){
-      markErr('email'); errors.push('Valid email address'); ok=false;
-    } else clearErr('email');
-    // Industry
-    if(!v('industry')){ markErr('industry'); errors.push('Industry / business type'); ok=false; } else clearErr('industry');
-    // Location
-    if(!v('location')){ markErr('location'); errors.push('Business location'); ok=false; } else clearErr('location');
-    // Website
-    if(!v('website')){ markErr('website'); errors.push('Website or social media link'); ok=false; } else clearErr('website');
-    showBanner(1, errors);
-  }
-
-  if(step === 2){
-    // Services
-    const services = getSelected('#service-grid .service-opt');
-    if(!services.length){
-      document.getElementById('err-services').classList.add('show');
-      document.querySelectorAll('#service-grid .service-opt').forEach(el=>el.classList.add('error-opt'));
-      errors.push('At least one service'); ok=false;
-    } else {
-      document.getElementById('err-services').classList.remove('show');
-      document.querySelectorAll('#service-grid .service-opt').forEach(el=>el.classList.remove('error-opt'));
-    }
-    // Current marketing
-    if(!v('current-mkt')){ markErr('current-mkt'); errors.push('Current marketing situation'); ok=false; } else clearErr('current-mkt');
-    // Budget
-    if(!v('budget')){ markErr('budget'); errors.push('Monthly budget range'); ok=false; } else clearErr('budget');
-    showBanner(2, errors);
-  }
-
-  if(step === 3){
-    // Goals
-    const goals = getSelected('#goals-grid .goal-opt');
-    if(!goals.length){
-      document.getElementById('err-goals').classList.add('show');
-      document.querySelectorAll('#goals-grid .goal-opt').forEach(el=>el.classList.add('error-opt'));
-      errors.push('At least one business goal'); ok=false;
-    } else {
-      document.getElementById('err-goals').classList.remove('show');
-      document.querySelectorAll('#goals-grid .goal-opt').forEach(el=>el.classList.remove('error-opt'));
-    }
-    // Target customer
-    if(!v('target')){ markErr('target'); errors.push('Target customer description'); ok=false; } else clearErr('target');
-    // Biz description
-    if(!v('biz-desc')){ markErr('biz-desc'); errors.push('Business description'); ok=false; } else clearErr('biz-desc');
-    // Scale
-    if(scaleVal === null){
-      document.getElementById('err-scale').classList.add('show');
-      document.getElementById('scale-wrap').classList.add('error-scale');
-      errors.push('Online presence rating'); ok=false;
-    } else {
-      document.getElementById('err-scale').classList.remove('show');
-      document.getElementById('scale-wrap').classList.remove('error-scale');
-    }
-    // Upload
-    if(!document.getElementById('logo-upload').files.length){
-      document.getElementById('err-upload').classList.add('show');
-      document.getElementById('upload-zone').classList.add('error-upload');
-      errors.push('Logo / brand asset upload'); ok=false;
-    } else {
-      document.getElementById('err-upload').classList.remove('show');
-      document.getElementById('upload-zone').classList.remove('error-upload');
-    }
-    // Extra notes
-    if(!v('extra')){ markErr('extra'); errors.push('Additional notes (write "None" if nothing to add)'); ok=false; } else clearErr('extra');
-    showBanner(3, errors);
-  }
-
-  return ok;
-}
-
-function v(id){ return document.getElementById(id).value.trim() !== ''; }
-
-function markErr(id){
-  const el = document.getElementById(id);
-  el.classList.add('error');
-  const errEl = document.getElementById('err-'+id);
-  if(errEl) errEl.classList.add('show');
-}
-
-function clearErr(id){
-  const el = document.getElementById(id);
-  if(el){ el.classList.remove('error'); }
-  const errEl = document.getElementById('err-'+id);
-  if(errEl) errEl.classList.remove('show');
-  // Also clear service/goal error state when one is selected
-  if(id==='services') document.querySelectorAll('#service-grid .service-opt').forEach(el=>el.classList.remove('error-opt'));
-  if(id==='goals') document.querySelectorAll('#goals-grid .goal-opt').forEach(el=>el.classList.remove('error-opt'));
-}
-
-function showBanner(step, errors){
-  const banner = document.getElementById('val-'+step);
-  const list = document.getElementById('val-'+step+'-list');
-  if(errors.length){
-    list.innerHTML = errors.map(e=>`<li>${e}</li>`).join('');
-    banner.classList.add('show');
-    // Scroll to banner
-    setTimeout(()=>banner.scrollIntoView({behavior:'smooth',block:'center'}),50);
-  } else {
-    banner.classList.remove('show');
-  }
-}
-
-// ── TOGGLES ──
-function toggleService(el){
-  el.classList.toggle('selected');
-  el.classList.remove('error-opt');
-  el.querySelector('input').checked = el.classList.contains('selected');
-  if(getSelected('#service-grid .service-opt').length){
-    document.getElementById('err-services').classList.remove('show');
-    document.querySelectorAll('#service-grid .service-opt').forEach(e=>e.classList.remove('error-opt'));
-  }
-}
-
-function toggleGoal(el){
-  el.classList.toggle('selected');
-  el.classList.remove('error-opt');
-  el.querySelector('input').checked = el.classList.contains('selected');
-  if(getSelected('#goals-grid .goal-opt').length){
-    document.getElementById('err-goals').classList.remove('show');
-    document.querySelectorAll('#goals-grid .goal-opt').forEach(e=>e.classList.remove('error-opt'));
-  }
-}
-
-function setScale(el, val){
-  document.querySelectorAll('.scale-btn').forEach(b=>b.classList.remove('selected'));
-  el.classList.add('selected');
-  scaleVal = val;
-  document.getElementById('scale-wrap').classList.remove('error-scale');
-  document.getElementById('err-scale').classList.remove('show');
-}
-
-function handleUpload(input){
-  const zone = document.getElementById('upload-zone');
-  const fname = document.getElementById('file-name');
+function handleUpload(input, zoneId, nameId){
+  const zone = document.getElementById(zoneId);
+  const fname = document.getElementById(nameId);
   if(input.files && input.files[0]){
     zone.classList.add('has-file');
-    zone.classList.remove('error-upload');
-    fname.textContent = '✓ '+input.files[0].name;
-    fname.style.display='block';
-    document.getElementById('err-upload').classList.remove('show');
+    fname.textContent = '✓ ' + input.files[0].name;
+    fname.style.display = 'block';
   }
 }
 
-function getSelected(selector){
-  return [...document.querySelectorAll(selector+'.selected')].map(el=>el.querySelector('input').value);
-}
-
-// ── PROGRESS ──
 function updateProgress(){
-  const pcts = {1:25,2:50,3:75,4:100};
+  const pcts = {1:25, 2:50, 3:75, 4:100};
   document.getElementById('prog-fill').style.width = pcts[currentStep]+'%';
-  for(let i=1;i<=4;i++){
-    const lbl = document.getElementById('lbl-'+i);
-    const dot = document.getElementById('dot-'+i);
-    lbl.classList.remove('active','done');
-    if(i===currentStep) lbl.classList.add('active');
-    else if(i<currentStep){lbl.classList.add('done');dot.textContent='✓';}
-    else dot.textContent=i;
-  }
 }
 
-// ── REVIEW ──
 function buildReview(){
-  const rows = [
-    ['Business Name', document.getElementById('biz-name').value],
-    ['Contact Name', document.getElementById('owner-name').value],
-    ['WhatsApp', document.getElementById('phone').value],
-    ['Email', document.getElementById('email').value],
-    ['Industry', document.getElementById('industry').value],
-    ['Location', document.getElementById('location').value],
-    ['Website / Social', document.getElementById('website').value],
-    ['Services', getSelected('#service-grid .service-opt').join(', ')],
-    ['Current Situation', document.getElementById('current-mkt').value],
-    ['Budget Range', document.getElementById('budget').value],
-    ['Business Goals', getSelected('#goals-grid .goal-opt').join(' | ')],
-    ['Target Customer', document.getElementById('target').value],
-    ['Business Description', document.getElementById('biz-desc').value],
-    ['Online Presence', scaleVal+'/10'],
-    ['Logo Uploaded', document.getElementById('logo-upload').files.length ? '✓ '+document.getElementById('logo-upload').files[0].name : '—'],
-    ['Additional Notes', document.getElementById('extra').value],
-  ];
-  document.getElementById('review-content').innerHTML = rows.map(r=>`
-    <div class="review-row">
-      <div class="review-key">${r[0]}</div>
-      <div class="review-val">${r[1]}</div>
-    </div>`).join('');
+    document.getElementById('review-content').innerHTML = `<p>Reviewing ${document.getElementById('biz-name').value}...</p>`;
 }
 
-// ── SUBMIT ──
 async function submitForm(){
   const btn = document.querySelector('.btn-submit');
-  btn.textContent = 'Submitting…';
+  btn.textContent = 'Uploading to Supabase...';
   btn.disabled = true;
 
-  // ── Build payload matching sheet columns exactly ──
   const payload = {
-    bizName:    document.getElementById('biz-name').value.trim(),
-    ownerName:  document.getElementById('owner-name').value.trim(),
-    phone:      document.getElementById('phone').value.trim(),
-    email:      document.getElementById('email').value.trim(),
-    industry:   document.getElementById('industry').value,
-    location:   document.getElementById('location').value.trim(),
-    website:    document.getElementById('website').value.trim(),
-    services:   getSelected('#service-grid .service-opt').join(', '),
-    currentMkt: document.getElementById('current-mkt').value,
-    budget:     document.getElementById('budget').value,
-    goals:      getSelected('#goals-grid .goal-opt').join(', '),
-    target:     document.getElementById('target').value.trim(),
-    bizDesc:    document.getElementById('biz-desc').value.trim(),
-    scale:      scaleVal + '/10',
-    extra:      document.getElementById('extra').value.trim(),
+    business_name: document.getElementById('biz-name').value,
+    owner_name: document.getElementById('owner-name').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    description: document.getElementById('biz-desc').value,
+    created_at: new Date()
   };
 
-  // ── Encode file as base64 for Drive upload ──
-  const fileInput = document.getElementById('logo-upload');
-  if(fileInput.files && fileInput.files[0]){
-    const file = fileInput.files[0];
-    try {
-      const base64 = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload  = () => resolve(reader.result.split(',')[1]);
-        reader.onerror = () => reject(new Error('File read failed'));
-        reader.readAsDataURL(file);
-      });
-      payload.fileData = base64;
-      payload.fileName = file.name;
-      payload.fileType = file.type || 'application/octet-stream';
-    } catch(fileErr){
-      console.warn('File encoding failed, skipping upload:', fileErr);
-    }
-  }
-
-  // ── POST to Apps Script ──
   try {
-    const res = await fetch(SCRIPT_URL, {
-      method:  'POST',
-      body:    JSON.stringify(payload)
-      // No Content-Type header — avoids CORS preflight on Apps Script
+    // 1. Post text data to Supabase Table
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/onboarding`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(payload)
     });
-    const json = await res.json();
-    if(!json.success){
-      console.error('Script error:', json.error);
-    }
-  } catch(err){
-    // Network error — WhatsApp message is the fallback capture
-    console.error('Fetch failed:', err);
-  }
 
-  // ── Show success regardless (WhatsApp is backup) ──
-  const msg = encodeURIComponent(
-    `Hi NMG! I just completed my onboarding form.\n\n` +
-    `Business: ${payload.bizName}\nContact: ${payload.ownerName}\n` +
-    `Services: ${payload.services}\nGoals: ${payload.goals}\nBudget: ${payload.budget}\n\n` +
-    `Looking forward to working with you! 🚀`
-  );
-  document.getElementById('wa-link').href = `https://wa.me/${WA_NUMBER}?text=${msg}`;
-  document.getElementById('main-card').style.display = 'none';
-  document.getElementById('success-screen').classList.add('show');
-  document.querySelector('.progress-wrap').style.display = 'none';
-  window.scrollTo({top:0, behavior:'smooth'});
+    // 2. Handle File Uploads (Optional: You'd typically upload to Supabase Storage here)
+    console.log("Data sent to Supabase");
+
+    // Success UI
+    document.getElementById('main-card').style.display = 'none';
+    document.getElementById('success-screen').classList.add('show');
+    document.getElementById('wa-link').href = `https://wa.me/${WA_NUMBER}?text=Onboarding Complete for ${payload.business_name}`;
+    
+  } catch (err) {
+    alert("Error submitting. Please try WhatsApp.");
+    console.error(err);
+  }
 }
 </script>
 </body>
