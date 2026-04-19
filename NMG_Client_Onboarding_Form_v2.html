@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NMG — New Client Onboarding</title>
 <link rel="icon" type="image/png" href="https://haiaxfzlhxenjhusqese.supabase.co/storage/v1/object/public/onboarding-assets/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Epilogue:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
-/* ... Your original CSS remains exactly as is ... */
 :root{
   --bg:#F7F6F2;
   --white:#FFFFFF;
@@ -191,6 +189,7 @@ select{
   transition:all .2s;display:flex;align-items:center;gap:8px;
 }
 .btn-submit:hover{background:#333;transform:translateY(-1px)}
+.btn-submit:disabled{background:var(--muted);cursor:not-allowed}
 .divider{border:none;border-top:1px solid var(--border);margin:1.2rem 0}
 .hint{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.5}
 .req-note{font-size:11px;color:var(--muted);margin-bottom:1.25rem}
@@ -240,7 +239,7 @@ select{
   <div class="progress-labels">
     <div class="progress-label active" id="lbl-1"><span class="step-dot" id="dot-1">1</span> Business Info</div>
     <div class="progress-label" id="lbl-2"><span class="step-dot" id="dot-2">2</span> Services</div>
-    <div class="progress-label" id="lbl-3"><span class="step-dot" id="dot-3">3</span> Goals & Assets</div>
+    <div class="progress-label" id="lbl-3"><span class="step-dot" id="dot-3">3</span> Goals &amp; Assets</div>
     <div class="progress-label" id="lbl-4"><span class="step-dot" id="dot-4">4</span> Confirm</div>
   </div>
   <div class="progress-bar-track">
@@ -314,31 +313,31 @@ select{
         <label>Industry / Business Type <span class="req">*</span></label>
         <select id="industry" onchange="clearErr('industry')">
           <option value="">— Select your industry —</option>
-          <option>Beauty & Health</option>
-          <option>Fashion & Clothing</option>
-          <option>Food & Beverage</option>
+          <option>Beauty &amp; Health</option>
+          <option>Fashion &amp; Clothing</option>
+          <option>Food &amp; Beverage</option>
           <option>Retail</option>
-          <option>Construction & Real Estate</option>
-          <option>Events & Entertainment</option>
-          <option>Tech & Electronics</option>
+          <option>Construction &amp; Real Estate</option>
+          <option>Events &amp; Entertainment</option>
+          <option>Tech &amp; Electronics</option>
           <option>Services</option>
-          <option>Photography & Creative</option>
-          <option>Accounting & Finance</option>
-          <option>Automotive & Transport</option>
-          <option>Education & Training</option>
-          <option>Healthcare & Medical</option>
-          <option>Hospitality & Travel</option>
-          <option>Legal & Law</option>
+          <option>Photography &amp; Creative</option>
+          <option>Accounting &amp; Finance</option>
+          <option>Automotive &amp; Transport</option>
+          <option>Education &amp; Training</option>
+          <option>Healthcare &amp; Medical</option>
+          <option>Hospitality &amp; Travel</option>
+          <option>Legal &amp; Law</option>
           <option>Manufacturing</option>
-          <option>Media & Marketing</option>
-          <option>Non-Profit & NGO</option>
+          <option>Media &amp; Marketing</option>
+          <option>Non-Profit &amp; NGO</option>
           <option>Real Estate</option>
-          <option>Fitness & Gym</option>
-          <option>Home & Cleaning Services</option>
-          <option>Logistics & Supply Chain</option>
-          <option>Agriculture & Farming</option>
+          <option>Fitness &amp; Gym</option>
+          <option>Home &amp; Cleaning Services</option>
+          <option>Logistics &amp; Supply Chain</option>
+          <option>Agriculture &amp; Farming</option>
           <option>E-commerce</option>
-          <option>Pet Care & Veterinary</option>
+          <option>Pet Care &amp; Veterinary</option>
           <option>Interior Design</option>
           <option>Consulting</option>
           <option>Other</option>
@@ -381,19 +380,19 @@ select{
           <div class="service-opt" onclick="toggleService(this)">
             <input type="checkbox" value="Social Media Management">
             <div class="s-icon">📱</div>
-            <div><div class="s-title">Social Media Management</div><div class="s-desc">Content creation, posting & growth</div></div>
+            <div><div class="s-title">Social Media Management</div><div class="s-desc">Content creation, posting &amp; growth</div></div>
             <div class="s-check"></div>
           </div>
           <div class="service-opt" onclick="toggleService(this)">
             <input type="checkbox" value="Google Business Profile (GBP)">
             <div class="s-icon">📍</div>
-            <div><div class="s-title">Google Business Profile</div><div class="s-desc">Google Maps visibility & SEO</div></div>
+            <div><div class="s-title">Google Business Profile</div><div class="s-desc">Google Maps visibility &amp; SEO</div></div>
             <div class="s-check"></div>
           </div>
           <div class="service-opt" onclick="toggleService(this)">
             <input type="checkbox" value="WhatsApp Sales Funnel">
             <div class="s-icon">💬</div>
-            <div><div class="s-title">WhatsApp Sales Funnel</div><div class="s-desc">Automated sales & broadcast strategy</div></div>
+            <div><div class="s-title">WhatsApp Sales Funnel</div><div class="s-desc">Automated sales &amp; broadcast strategy</div></div>
             <div class="s-check"></div>
           </div>
           <div class="service-opt" onclick="toggleService(this)">
@@ -405,7 +404,7 @@ select{
           <div class="service-opt" onclick="toggleService(this)">
             <input type="checkbox" value="Digital Marketing / Lead Generation">
             <div class="s-icon">🎯</div>
-            <div><div class="s-title">Digital Marketing</div><div class="s-desc">Ads, lead generation & campaigns</div></div>
+            <div><div class="s-title">Digital Marketing</div><div class="s-desc">Ads, lead generation &amp; campaigns</div></div>
             <div class="s-check"></div>
           </div>
           <div class="service-opt" onclick="toggleService(this)">
@@ -446,7 +445,7 @@ select{
       </div>
       <div class="nav-btns">
         <button class="btn-back" onclick="goTo(1)">← Back</button>
-        <button class="btn-next" onclick="goTo(3)">Next — Goals & Assets →</button>
+        <button class="btn-next" onclick="goTo(3)">Next — Goals &amp; Assets →</button>
       </div>
     </div>
   </div>
@@ -454,7 +453,7 @@ select{
   <div class="step-panel" id="step-3">
     <div class="card-head">
       <div class="step-counter">Step 3 of 4</div>
-      <h2>Goals, audience & brand assets</h2>
+      <h2>Goals, audience &amp; brand assets</h2>
       <p>Help us understand your customers and what success looks like.</p>
     </div>
     <div class="card-body">
@@ -469,13 +468,13 @@ select{
         <label>Primary Business Goals <span class="req">*</span> — Select at least one</label>
         <div class="goals-grid" id="goals-grid">
           <div class="goal-opt" onclick="toggleGoal(this)">
-            <input type="checkbox" value="Get more customers & increase sales">
-            <span>💰 Get more customers & increase sales</span>
+            <input type="checkbox" value="Get more customers &amp; increase sales">
+            <span>💰 Get more customers &amp; increase sales</span>
             <div class="goal-check"></div>
           </div>
           <div class="goal-opt" onclick="toggleGoal(this)">
-            <input type="checkbox" value="Build brand awareness & recognition">
-            <span>📣 Build brand awareness & recognition</span>
+            <input type="checkbox" value="Build brand awareness &amp; recognition">
+            <span>📣 Build brand awareness &amp; recognition</span>
             <div class="goal-check"></div>
           </div>
           <div class="goal-opt" onclick="toggleGoal(this)">
@@ -489,8 +488,8 @@ select{
             <div class="goal-check"></div>
           </div>
           <div class="goal-opt" onclick="toggleGoal(this)">
-            <input type="checkbox" value="Automate sales & follow-up process">
-            <span>⚙️ Automate sales & follow-up process</span>
+            <input type="checkbox" value="Automate sales &amp; follow-up process">
+            <span>⚙️ Automate sales &amp; follow-up process</span>
             <div class="goal-check"></div>
           </div>
           <div class="goal-opt" onclick="toggleGoal(this)">
@@ -499,7 +498,7 @@ select{
             <div class="goal-check"></div>
           </div>
         </div>
-        <div class="err-msg" id="err-goals">Please select at least one goal</div>
+        <div class="err-msg" id="err-goals">Please select at least one business goal</div>
       </div>
 
       <hr class="divider">
@@ -558,7 +557,7 @@ select{
         <div class="upload-zone" id="upload-zone" onclick="document.getElementById('logo-upload').click()">
           <input type="file" id="logo-upload" accept="image/*,.pdf,.zip" style="display:none" onchange="handleUpload(this)">
           <div class="upload-icon">📁</div>
-          <div class="upload-title">Click to upload or drag & drop</div>
+          <div class="upload-title">Click to upload or drag &amp; drop</div>
           <div class="upload-sub">PNG, JPG, PDF or ZIP · Max 10MB</div>
           <div class="file-name" id="file-name"></div>
         </div>
@@ -574,7 +573,7 @@ select{
 
       <div class="nav-btns">
         <button class="btn-back" onclick="goTo(2)">← Back</button>
-        <button class="btn-next" onclick="goTo(4)">Review & Confirm →</button>
+        <button class="btn-next" onclick="goTo(4)">Review &amp; Confirm →</button>
       </div>
     </div>
   </div>
@@ -600,14 +599,14 @@ select{
   <h2>You're all set!</h2>
   <p>Thanks for completing your onboarding. We've received everything and will review your details before reaching out. Click below to connect with us directly on WhatsApp regarding form completion.</p>
   <a class="wa-btn" id="wa-link" href="#" target="_blank">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.12 1.526 5.855L.057 23.117a.75.75 0 00.917.919l5.353-1.44A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.719 9.719 0 01-4.943-1.349l-.355-.21-3.682.99.998-3.596-.231-.371A9.722 9.722 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.12 1.526 5.855L.057 23.117a.75.75 0 00.917.919l5.353-1.44A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.719 9.719 0 01-4.943-1.349l-.355-.21-3.682.99.998-3.596-.231-.371A9.722 9.722 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"></path></svg>
     Continue on WhatsApp
   </a>
   <p class="wa-note">We typically respond within a few hours · Accra, Ghana</p>
 </div>
 
 <script>
-// INCLUDED: SUPABASE CONFIGURATION
+// SUPABASE CONFIGURATION
 const SUPABASE_URL = 'https://haiaxfzlhxenjhusqese.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhaWF4ZnpsaHhlbmpodXNxZXNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4NDY3OTMsImV4cCI6MjA5MTQyMjc5M30.1PLIMg3OxwAubRYwkjuFx_cNXyR0HxNTTs9drijRC_A';
 const WA_NUMBER  = '233268786647';
@@ -615,7 +614,7 @@ const WA_NUMBER  = '233268786647';
 let currentStep = 1;
 let scaleVal = null;
 
-// Original navigation logic...
+// Navigation logic
 function goTo(step){
   if(step > currentStep){
     if(!validate(currentStep)) return;
@@ -648,7 +647,18 @@ function handleStep3Upload(input, nameId){
   }
 }
 
-// ... Original form handler functions (validate, clearErr, etc.) ...
+function handleUpload(input){
+  const zone = document.getElementById('upload-zone');
+  const fname = document.getElementById('file-name');
+  if(input.files && input.files[0]){
+    zone.classList.add('has-file');
+    zone.classList.remove('error-upload');
+    fname.textContent = '✓ '+input.files[0].name;
+    fname.style.display='block';
+    document.getElementById('err-upload').classList.remove('show');
+  }
+}
+
 function validate(step){
   const errors = [];
   let ok = true;
@@ -663,6 +673,11 @@ function validate(step){
     if(!v('industry')){ markErr('industry'); errors.push('Industry / business type'); ok=false; } else clearErr('industry');
     if(!v('location')){ markErr('location'); errors.push('Business location'); ok=false; } else clearErr('location');
     if(!v('website')){ markErr('website'); errors.push('Website or social media link'); ok=false; } else clearErr('website');
+    
+    // File validation for Step 1
+    if(!document.getElementById('ghana-front').files.length){ errors.push('Ghana Card (Front)'); ok=false; }
+    if(!document.getElementById('ghana-back').files.length){ errors.push('Ghana Card (Back)'); ok=false; }
+    
     showBanner(1, errors);
   }
   if(step === 2){
@@ -699,6 +714,7 @@ function validate(step){
       document.getElementById('err-scale').classList.remove('show');
       document.getElementById('scale-wrap').classList.remove('error-scale');
     }
+    if(!document.getElementById('personal-pic').files.length){ errors.push('Personal Picture'); ok=false; }
     if(!document.getElementById('logo-upload').files.length){
       document.getElementById('err-upload').classList.add('show');
       document.getElementById('upload-zone').classList.add('error-upload');
@@ -712,10 +728,11 @@ function validate(step){
   }
   return ok;
 }
+
 function v(id){ return document.getElementById(id).value.trim() !== ''; }
 function markErr(id){
   const el = document.getElementById(id);
-  el.classList.add('error');
+  if(el) el.classList.add('error');
   const errEl = document.getElementById('err-'+id);
   if(errEl) errEl.classList.add('show');
 }
@@ -727,6 +744,7 @@ function clearErr(id){
   if(id==='services') document.querySelectorAll('#service-grid .service-opt').forEach(el=>el.classList.remove('error-opt'));
   if(id==='goals') document.querySelectorAll('#goals-grid .goal-opt').forEach(el=>el.classList.remove('error-opt'));
 }
+
 function showBanner(step, errors){
   const banner = document.getElementById('val-'+step);
   const list = document.getElementById('val-'+step+'-list');
@@ -738,6 +756,7 @@ function showBanner(step, errors){
     banner.classList.remove('show');
   }
 }
+
 function toggleService(el){
   el.classList.toggle('selected');
   el.classList.remove('error-opt');
@@ -747,6 +766,7 @@ function toggleService(el){
     document.querySelectorAll('#service-grid .service-opt').forEach(e=>e.classList.remove('error-opt'));
   }
 }
+
 function toggleGoal(el){
   el.classList.toggle('selected');
   el.classList.remove('error-opt');
@@ -756,6 +776,7 @@ function toggleGoal(el){
     document.querySelectorAll('#goals-grid .goal-opt').forEach(e=>e.classList.remove('error-opt'));
   }
 }
+
 function setScale(el, val){
   document.querySelectorAll('.scale-btn').forEach(b=>b.classList.remove('selected'));
   el.classList.add('selected');
@@ -763,20 +784,11 @@ function setScale(el, val){
   document.getElementById('scale-wrap').classList.remove('error-scale');
   document.getElementById('err-scale').classList.remove('show');
 }
-function handleUpload(input){
-  const zone = document.getElementById('upload-zone');
-  const fname = document.getElementById('file-name');
-  if(input.files && input.files[0]){
-    zone.classList.add('has-file');
-    zone.classList.remove('error-upload');
-    fname.textContent = '✓ '+input.files[0].name;
-    fname.style.display='block';
-    document.getElementById('err-upload').classList.remove('show');
-  }
-}
+
 function getSelected(selector){
   return [...document.querySelectorAll(selector+'.selected')].map(el=>el.querySelector('input').value);
 }
+
 function updateProgress(){
   const pcts = {1:25,2:50,3:75,4:100};
   document.getElementById('prog-fill').style.width = pcts[currentStep]+'%';
@@ -789,6 +801,7 @@ function updateProgress(){
     else dot.textContent=i;
   }
 }
+
 function buildReview(){
   const rows = [
     ['Business Name', document.getElementById('biz-name').value],
@@ -805,7 +818,10 @@ function buildReview(){
     ['Target Customer', document.getElementById('target').value],
     ['Business Description', document.getElementById('biz-desc').value],
     ['Online Presence', scaleVal+'/10'],
-    ['Logo Uploaded', document.getElementById('logo-upload').files.length ? '✓ '+document.getElementById('logo-upload').files[0].name : '—'],
+    ['Ghana Card Front', document.getElementById('ghana-front').files[0]?.name || '—'],
+    ['Ghana Card Back', document.getElementById('ghana-back').files[0]?.name || '—'],
+    ['Personal Picture', document.getElementById('personal-pic').files[0]?.name || '—'],
+    ['Logo Uploaded', document.getElementById('logo-upload').files[0]?.name || '—'],
     ['Additional Notes', document.getElementById('extra').value],
   ];
   document.getElementById('review-content').innerHTML = rows.map(r=>`
@@ -815,31 +831,81 @@ function buildReview(){
     </div>`).join('');
 }
 
-// INCLUDED: SUBMIT TO SUPABASE CONFIG
+// SUPABASE STORAGE UPLOAD HELPER
+async function uploadToSupabase(file, bucket) {
+  const fileName = `${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
+  const filePath = `${fileName}`;
+  
+  const res = await fetch(`${SUPABASE_URL}/storage/v1/object/${bucket}/${filePath}`, {
+    method: 'POST',
+    headers: {
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+      'Content-Type': file.type
+    },
+    body: file
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.message || 'Upload failed');
+  }
+
+  // Return public URL
+  return `${SUPABASE_URL}/storage/v1/object/public/${bucket}/${filePath}`;
+}
+
+// SUBMIT FORM WITH FILE UPLOADS
 async function submitForm(){
   const btn = document.querySelector('.btn-submit');
-  btn.textContent = 'Submitting…';
+  const originalText = btn.textContent;
+  btn.textContent = 'Uploading files...';
   btn.disabled = true;
 
-  const payload = {
-    bizName:    document.getElementById('biz-name').value.trim(),
-    ownerName:  document.getElementById('owner-name').value.trim(),
-    phone:      document.getElementById('phone').value.trim(),
-    email:      document.getElementById('email').value.trim(),
-    industry:   document.getElementById('industry').value,
-    location:   document.getElementById('location').value.trim(),
-    website:    document.getElementById('website').value.trim(),
-    services:   getSelected('#service-grid .service-opt').join(', '),
-    currentMkt: document.getElementById('current-mkt').value,
-    budget:     document.getElementById('budget').value,
-    goals:      getSelected('#goals-grid .goal-opt').join(', '),
-    target:     document.getElementById('target').value.trim(),
-    bizDesc:    document.getElementById('biz-desc').value.trim(),
-    scale:      scaleVal + '/10',
-    extra:      document.getElementById('extra').value.trim(),
-  };
-
   try {
+    // 1. Upload files first
+    const fileInputs = [
+      { id: 'ghana-front', bucket: 'onboarding-assets' },
+      { id: 'ghana-back', bucket: 'onboarding-assets' },
+      { id: 'personal-pic', bucket: 'onboarding-assets' },
+      { id: 'logo-upload', bucket: 'onboarding-assets' }
+    ];
+
+    const fileUrls = {};
+    for (const input of fileInputs) {
+      const file = document.getElementById(input.id).files[0];
+      if (file) {
+        fileUrls[input.id] = await uploadToSupabase(file, input.bucket);
+      }
+    }
+
+    btn.textContent = 'Saving data...';
+
+    // 2. Prepare payload with file URLs
+    const payload = {
+      bizName:    document.getElementById('biz-name').value.trim(),
+      ownerName:  document.getElementById('owner-name').value.trim(),
+      phone:      document.getElementById('phone').value.trim(),
+      email:      document.getElementById('email').value.trim(),
+      industry:   document.getElementById('industry').value,
+      location:   document.getElementById('location').value.trim(),
+      website:    document.getElementById('website').value.trim(),
+      services:   getSelected('#service-grid .service-opt').join(', '),
+      currentMkt: document.getElementById('current-mkt').value,
+      budget:     document.getElementById('budget').value,
+      goals:      getSelected('#goals-grid .goal-opt').join(', '),
+      target:     document.getElementById('target').value.trim(),
+      bizDesc:    document.getElementById('biz-desc').value.trim(),
+      scale:      scaleVal + '/10',
+      extra:      document.getElementById('extra').value.trim(),
+      // Add file URLs to payload
+      ghanaFrontUrl: fileUrls['ghana-front'] || '',
+      ghanaBackUrl:  fileUrls['ghana-back'] || '',
+      personalPicUrl: fileUrls['personal-pic'] || '',
+      logoUrl:       fileUrls['logo-upload'] || ''
+    };
+
+    // 3. Submit to Supabase Database
     const res = await fetch(`${SUPABASE_URL}/rest/v1/onboarding`, {
       method:  'POST',
       headers: {
@@ -852,24 +918,30 @@ async function submitForm(){
     });
 
     if(!res.ok){
-      console.error('Supabase error');
+      const err = await res.json();
+      throw new Error(err.message || 'Database submission failed');
     }
-  } catch(err){
-    console.error('Fetch failed:', err);
-  }
 
-  const msg = encodeURIComponent(
-    `Hi NMG! I just completed my onboarding form.\n\n` +
-    `Business: ${payload.bizName}\nContact: ${payload.ownerName}\n` +
-    `Services: ${payload.services}\nGoals: ${payload.goals}\nBudget: ${payload.budget}\n\n` +
-    `Looking forward to working with you! 🚀`
-  );
-  document.getElementById('wa-link').href = `https://wa.me/${WA_NUMBER}?text=${msg}`;
-  document.getElementById('main-card').style.display = 'none';
-  document.getElementById('success-screen').classList.add('show');
-  document.querySelector('.progress-wrap').style.display = 'none';
-  window.scrollTo({top:0, behavior:'smooth'});
+    // 4. Success UI
+    const msg = encodeURIComponent(
+      `Hi NMG! I just completed my onboarding form.\n\n` +
+      `Business: ${payload.bizName}\nContact: ${payload.ownerName}\n` +
+      `Services: ${payload.services}\nGoals: ${payload.goals}\nBudget: ${payload.budget}\n\n` +
+      `Looking forward to working with you! 🚀`
+    );
+    document.getElementById('wa-link').href = `https://wa.me/${WA_NUMBER}?text=${msg}`;
+    document.getElementById('main-card').style.display = 'none';
+    document.getElementById('success-screen').classList.add('show');
+    document.querySelector('.progress-wrap').style.display = 'none';
+    window.scrollTo({top:0, behavior:'smooth'});
+
+  } catch(err){
+    console.error('Submission failed:', err);
+    alert('Submission failed: ' + err.message);
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
 }
 </script>
-</body>
-</html>
+
+</body></html>
